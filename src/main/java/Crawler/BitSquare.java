@@ -14,12 +14,12 @@ public class BitSquare {
     static int gameprofit=0;
     static int count=0,errorcnt=0,plcnt=0;
 
-    public void Parse(int start, int end) {
+    public void Parse(int startgamenum, int endgamenum) {
         String profit="";
         DecimalFormat Commas = new DecimalFormat("#,###");
         ArrayList<GameData> data=new ArrayList<>();
         int i;
-        for(i=start;i<=end;i++) {
+        for(i=stargamenumt;i<=endgamenum;i++) {
             GameData gd=bitsquare(i);
             if(gd==null) {
                 gd=bitsquare(i);
@@ -133,13 +133,7 @@ public class BitSquare {
 
                 profit=temp.substring(temp.indexOf(">")+1,temp.indexOf("."));
                 temp=temp.substring(temp.indexOf("</td>")+5);
-                ar.add(new PlayerData(player, batmoney, per, bonus, profit));/*
-				System.out.println("�÷��̾� : "+player);
-				System.out.println("���þ� : "+batmoney);
-				System.out.println("��� : "+per);
-				System.out.println("���ʽ� : "+bonus);
-				System.out.println("���� : "+profit);
-				System.out.println("======================================");*/
+                ar.add(new PlayerData(player, batmoney, per, bonus, profit));
             }
             if(ar.size()!=0) {
                 gd=new GameData(gamenum, gameper, gametime, ar);
